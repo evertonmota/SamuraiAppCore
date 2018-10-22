@@ -2,6 +2,7 @@
 {
     public class SamuraiBattle
     {
+        public int SamuariBattleId { get; set; }
         public int SamuariId { get; set; }
         public Samurai Samurai { get; set; }
         public int BattleId { get; set; }
