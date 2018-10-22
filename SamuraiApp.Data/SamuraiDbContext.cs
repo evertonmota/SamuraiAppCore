@@ -23,6 +23,10 @@ namespace SamuraiApp.Data
         {
         }
 
+        public SamuraiDbContext()
+        {
+        }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<SamuraiBattle>()
@@ -33,8 +37,8 @@ namespace SamuraiApp.Data
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
             builder.UseLoggerFactory(LoggerFactotydb);
-            //builder.UseSqlServer(
-              //  "Server=(localdb)\\mssqllocaldb; Database= SamuraiAppCoreDb; Trusted_Connection=True; ");
+            builder.UseSqlServer(
+                "Server=(localdb)\\mssqllocaldb; Database= SamuraiAppCoreDb; Trusted_Connection=True; ");
         }
        
     }
