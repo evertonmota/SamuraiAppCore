@@ -32,6 +32,21 @@ namespace WebApp
             CreateWebHostBuilder(args).Build().Run();
 
         }
+
+        //Insert EagerLoad ()
+        private static void EagerLoadSamuraiWithQuotes()
+        {
+            var samuraiWithQuotesArray = _context.Samurais.Include(s => s.Quotes).ToArray();
+
+            //Neste exemplo há Duas Consultas. Um Select Samurais e outro Select em Quotes Inner Join Select from Samurais
+            var samuraiWithQuotesList = _context.Samurais.Include(s => s.Quotes).ToList();
+
+            var samuraiWithQuotes = _context.Samurais.Where(s => s.Name.Contains("Everton"))
+                .Include(s => s.Quotes)
+                .Include(s => s.SecretIdentity)
+                .FirstOrDefault();
+        }
+
         //Insert Battles
         private static void InsertBattle()
         {
